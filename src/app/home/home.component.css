@@ -1,8 +1,37 @@
-.button{
-    color: white;
-    background-color: black;
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 35%;
+    margin-right: 35%;
+    justify-content : space-between;
 }
-.active-button{
-    color: white;
-    background-color: blue;
+
+hr{
+    margin: 0;
+}
+
+@media (max-width : 992px) {
+    .nav-container{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
+.inactive-tab, .active-tab{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    cursor: pointer;
+}
+.active-tab > a{
+    text-decoration: none;
+}
+
+.active-tab{
+    border-radius: 8px;
+    border-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19)
 }
