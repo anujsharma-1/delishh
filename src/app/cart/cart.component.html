@@ -1,0 +1,69 @@
+
+<br><br>
+<b style="margin-left: 10rem; font-size :x-large; font-weight: 500;">Shopping Cart</b>
+<hr>
+<span>
+    <table>
+        <tr>
+            <th>Product Details</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <br><br>
+        <tr *ngFor="let x of cart">
+            <td>
+                <table >
+                    <tr style = "padding-top : 1rem;;">
+                        <td style = "padding-left: 4px;">
+                            <img [src]="x.img" style="height: 8rem; width : 12rem;">
+                        </td>
+                        <td style = "padding-left: 4px;">
+                            <b style = "font-size: medium; font-weight: 500; padding-bottom: 0.6rem;">{{x.name}}</b><br>
+                            <button class = "remove" (click) = remove(x.id)>remove</button>                
+                        </td>
+                    </tr>
+                </table>
+                
+                
+
+            </td>
+            <td style="margin-left: 10rem;">
+                <button style="background-color : white; border : 0px;color: rgb(46, 167, 224);"
+                    (click)="countdecrease(x.id);">
+                    <span class="material-symbols-outlined">
+                        remove
+                    </span>
+                </button>
+                <sup>{{x.quantity}}</sup>
+                <button style="background-color : white; border : 0px; color: rgb(46, 167, 224);"
+                    (click)="countincrease(x.id);">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </button>
+            </td>
+            <td>
+                {{x.price}}
+            </td>
+            <td>
+                {{x.quantity * x.price}}
+            </td>
+
+        </tr>
+    </table>
+    <span *ngIf="empty == false">
+        <h3 style="margin-left : 58rem">
+            total price : {{total}}
+        </h3>
+    </span>
+</span>
+<span *ngIf = "empty == false">
+    <button class = "btn btn-warning" style="margin-left: 58rem; color: white;" (click) = "Checkoutfunc()">Checkout</button>
+</span>
+
+
+<div *ngIf="empty == true">
+    <h3 style="margin-left: 43%; margin-top: 10%;">Cart is empty!!</h3>
+</div>
+

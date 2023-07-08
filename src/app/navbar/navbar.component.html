@@ -1,0 +1,16 @@
+<div class = "mymade">
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <!-- <img src = "https://img.freepik.com/premium-vector/good-food-logo-template_79169-17.jpg?w=2000" style = "width : 4rem"> -->
+      <a  class="nav-link " routerLink = "" style = "margin-left : 12rem; color: balck; font-size: 1rem; font-weight: 560;" (click) = "tabs = 'home'"  aria-current="page" > <i class="fa-solid fa-house"></i>Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink = "cart" style = "margin-left : 45rem; color: balck; font-size: 1rem; font-weight: 560;" (click) = "tabs = 'cart'" (mouseover) = "cart();"><i class="fa-solid fa-cart-shopping"></i>{{cartitem}}<div id = "id1"></div></a>
+    </li>
+    
+</ul>
+</div>
+
+<router-outlet></router-outlet>
+

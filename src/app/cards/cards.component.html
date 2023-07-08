@@ -1,0 +1,52 @@
+<div class="row row-cols-1 row-cols-md-3" style="margin-left: 4rem; margin-right : 4rem;">
+    <div *ngFor="let x of localarray;">
+        <div class='col mb-4' style="margin-left: 2rem;;">
+            <div class="card h-100 shadow p-3 mb-5 bg-body rounded" style = "width: 20rem; height: 24rem;">
+                <div class="card " style="border : 0px">
+                    <a (click) = "routerfunc(x)"  style="border: 0; background-color: white;">
+                    <img class="card-img-top" [src]="x.img" style="height: 13rem;;">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.name}}
+                            <span *ngIf = "x.type == 0">
+                            <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/768px-Indian-vegetarian-mark.svg.png" style="width: 20px;">
+                            </span>
+                            <span *ngIf = "x.type == 2">
+                                <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/768px-Indian-vegetarian-mark.svg.png" style="width: 20px;">
+                                </span>
+                            <span *ngIf = "x.type == 1">
+                                <img src = "http://mummyskhana.com/wp-content/uploads/2021/01/non-veg-icon.jpg" style = "width : 20px">
+                            </span>
+                        </h5>
+                        <b>
+                            <span style="background-color: orange;border: 0px ; height: 23px; border-radius: 30px; padding-left : 10px;padding-right : 10px;"> 
+                                <b style="font-size: 1rem; font-weight: 400; color: white;font-style:unset;">{{x.star}}</b> 
+                                <span
+                                    class="material-symbols-outlined fa-sm"
+                                    style="background-color: orange;border: 0px ; color: white; size: 1.6rem;">
+                                    star
+                                </span>
+                            </span>
+                            <b style = "padding-left: 1.3rem; font-weight: 700;">{{x.price | currency : 'INR'}}</b>
+                            <button style="background-color : white; border : 0px;color: rgb(46, 167, 224); margin-left: 1.3rem; ;"
+                                (click)="countdecrease(x.id);">
+                                <span class="material-symbols-outlined">
+                                    remove
+                                </span>
+                            </button>
+                            {{x.quantity}}
+                            <button style="background-color : white; border : 0px; color: rgb(46, 167, 224);"
+                                (click)="countincrease(x.id);">
+                                <span class="material-symbols-outlined">
+                                    add
+                                </span>
+                            </button>
+                        </b>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

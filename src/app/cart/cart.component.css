@@ -1,0 +1,20 @@
+.myclass{
+    color: white;
+    background-color: rgb(48, 129, 215);
+    border: 0;
+    border-radius: 8px;
+}
+th{
+    padding-left: 11rem;
+}
+td{
+    padding-left: 11rem;
+}
+.remove{
+    height: 1.8rem;
+    width: 4.6rem;
+    background-color: rgb(241, 139, 95);
+    border: 0px;
+    border-radius: 10px;;
+    color : white;
+}

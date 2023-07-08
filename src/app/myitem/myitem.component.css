@@ -1,0 +1,19 @@
+.form-control.ng-touched.ng-valid{
+    border: 2px solid rgb(66, 66, 232);
+}
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid rgb(220, 97, 97);
+}
+#id1{
+    background-color: bisque;
+}
+.mymade{
+    margin-left: 2rem; 
+    margin-top: 2rem;
+    border: 0;
+    background-color: rgb(238, 156, 56);
+    color: white;
+    width: 3rem;;
+    padding-bottom: 4px;
+    border-radius: 3px;
+}

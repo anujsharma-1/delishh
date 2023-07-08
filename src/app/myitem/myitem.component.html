@@ -1,0 +1,149 @@
+<h4></h4>
+
+
+<br><br>
+<div>
+    <table>
+        <tr>
+            <ul class="nav nav-tabs">
+
+                <li class="nav-item" style="margin-left: 15rem; font-size: 1.3rem;">
+                    <a class="nav-link" [class.active]="tabs == 'personal'" (click)="tabs = 'personal'">Personal
+                        Details</a>
+                </li>
+
+                <li class="nav-item" style="margin-left: 10rem; font-size: 1.3rem;">
+                    <a class="nav-link" [class.active]="tabs == 'add'">Address</a>
+                </li>
+
+                <li class="nav-item" style="margin-left: 10rem; font-size: 1.3rem; padding-right:18.7rem;">
+                    <a class="nav-link" [class.active]="tabs == 'pay'">Payment</a>
+                </li>
+
+            </ul>
+
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+<div  id="id1" style="padding-bottom : 2rem; padding-top : 2.5rem;">
+
+    <div [ngSwitch]="tabs">
+
+        <div *ngSwitchCase="'personal'" #f>
+
+            <form [formGroup]="form" style="margin-left: 3rem;margin-right: 3rem;;">
+
+                <div formGroupName="pdetails">
+                    <div class="form-group">
+                        <label for="user">Username</label>
+                        <input id="user" type="text" class="form-control" formControlName="username">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Full Name</label>
+                        <input id="fname" type="text" class="form-control" formControlName="fname" name="fname">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" class="form-control" formControlName="email">
+
+                    </div>
+                    <div class="form-group">
+
+                        <label for="pass">Password</label>
+                        <input id="pass" type="password" class="form-control" formControlName="password">
+
+                    </div>
+                </div>
+                <button (click)="func();" style="margin-left: 2rem; margin-top: 2rem;"
+                    [disabled]="!form.get('pdetails')?.['valid']" class = "mymade">next</button>
+            </form>
+
+        </div>
+        <form [formGroup]="form" style="margin-left: 3rem;margin-right: 3rem;">
+
+            <div *ngSwitchCase="'add'">
+                <div formGroupName="address">
+
+                    <div class="form-group">
+                        <label for="str">Street</label>
+                        <input id="str" type="text" class="form-control" formControlName="street">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sec">Sector</label>
+                        <input id="sec" type="text" class="form-control" formControlName="sector">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input id="city" type="text" class="form-control" formControlName="city">
+
+                    </div>
+                </div>
+                <button (click)="func();" style="margin-left: 2rem; margin-top: 2rem;"
+                    [disabled]="!form.get('address')?.['valid']" class = "mymade">next</button>
+            </div>
+        </form>
+        <div *ngSwitchCase="'pay'">
+            <form [formGroup]="form" style="margin-left: 3rem;margin-right: 3rem;;">
+
+                <div formGroupName="payment">
+                    <div class="form-group">
+
+                        <label for="bank">Bank Name</label>
+                        <input id="bank" type="text" class="form-control" formControlName="bank">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="card">Card number</label>
+                        <input id="card" type="text" class="form-control" formControlName="card">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">Cvv</label>
+                        <input id="cvv" type="password" class="form-control" formControlName="cvv">
+
+                    </div>
+                </div>
+            </form>
+            <button (click)="func();" style="margin-left: 5rem; margin-top: 2rem;"
+            [disabled]="!form.get('payment')?.['valid']" data-bs-toggle="modal" data-bs-target="#exampleModal" class = "mymade">next</button>
+
+        </div>
+    </div>
+</div>
+
+<br>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style = "margin-left: 5rem;;">
+        <img src = "https://thumbs.dreamstime.com/z/birthday-party-emoji-celebrate-emoticon-happy-face-hat-209738459.jpg" style = "width:3.6rem; height : 3.6rem;">
+         Yay!! Your order is confirmed 
+        </div>
+        <div class="modal-footer">
+         
+        </div>
+      </div>
+    </div>
+  </div>
