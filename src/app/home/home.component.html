@@ -1,24 +1,11 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <!-- <div class="carousel-item active">
-        <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045__340.jpg" alt="First slide">
-      </div> -->
-      <div class="carousel-item active">
-        <img src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png" style = "width : 100%; height : 24rem;" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <label ><h3 style = "font-size: 3rem; font-style: italic;">Delis<b style = "font-size: 3.5rem; font-weight: 600;">h</b><b style = "font-size: 5rem; font-weight: 600;">h</b></h3></label><br>
-            <h4 style = "font-weight: 400;">Explore the best foods and drinks in town</h4>
-          <input #f type = "text" style="margin-bottom: 5rem; width: 33rem; padding-left: 3rem; height: 2.4rem; border: 0px; border-radius: 6px;" placeholder="Search dish or cuisine" (keyup.enter) = "func(f.value);">
-        </div>
-      </div>
-    </div> 
+<div>
+  <img src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png" style = "width : 100%; height : 24rem;" alt="...">
+  <div class="heading-image">
+    <label ><h3 style = "font-size: 3rem; font-style: italic;">Delis<b style = "font-size: 3.5rem; font-weight: 600;">h</b><b style = "font-size: 5rem; font-weight: 600;">h</b></h3></label><br>
+    <h4 style = "font-weight: 400;">Explore the best foods and drinks in town</h4>
+    <input #f type = "text" placeholder="Search dish or cuisine" (keyup.enter) = "func(f.value);">
   </div>
-  <br><br>
+</div>
 
   <div class="nav-container">
     <div [ngClass]="type == 'all' ? 'active-tab' : 'inactive-tab'" (click) = "type = 'all'; method();"  aria-current="page">

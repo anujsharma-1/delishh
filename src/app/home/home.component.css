@@ -35,3 +35,39 @@ hr{
     border-bottom-right-radius: 0px;
     box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19)
 }
+
+img{
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.heading-image{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14rem; 
+    align-items: center;
+}   
+
+.heading-image > label{
+    margin-top: 3.5rem;
+}
+
+.heading-image > input{
+    width: 33rem;
+    padding-left: 3rem; 
+    height: 2.4rem; 
+    border: 0px; 
+    border-radius: 6px;
+    outline: none;
+}
+
+h3, b, h4{
+    color : white;
+}
+
+@media (max-width : 768px) {
+    .heading-image > input{
+        width: 26rem;
+    }
+}
