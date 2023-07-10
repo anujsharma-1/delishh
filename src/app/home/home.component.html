@@ -3,7 +3,13 @@
   <div class="heading-image">
     <label ><h3 style = "font-size: 3rem; font-style: italic;">Delis<b style = "font-size: 3.5rem; font-weight: 600;">h</b><b style = "font-size: 5rem; font-weight: 600;">h</b></h3></label><br>
     <h4 style = "font-weight: 400;">Explore the best foods and drinks in town</h4>
-    <input #f type = "text" placeholder="Search dish or cuisine" (keyup.enter) = "func(f.value);">
+    <div class="icon-parent">
+      <span class="material-symbols-outlined">
+        search
+      </span>
+      <input #f type = "text" placeholder="Search dish or cuisine" (keyup.enter) = "func(f.value);">
+    </div>
+
   </div>
 </div>
 
