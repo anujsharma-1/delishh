@@ -1,8 +1,106 @@
-.button{
-    color: white;
-    background-color: black;
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 35%;
+    margin-right: 35%;
+    justify-content : space-between;
 }
-.active-button{
-    color: white;
-    background-color: blue;
+
+hr{
+    margin: 0;
+}
+
+@media (max-width : 992px) and (min-width: 768px) {
+    .nav-container{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
+@media (max-width : 768px) and (min-width: 400px) {
+    .nav-container{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media (max-width : 400px) {
+    .nav-container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+
+.inactive-tab, .active-tab{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    cursor: pointer;
+}
+.active-tab > a{
+    text-decoration: none;
+}
+
+.active-tab{
+    border-radius: 8px;
+    border-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19)
+}
+
+img{
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.heading-image{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14rem; 
+    align-items: center;
+}   
+
+.heading-image > label{
+    margin-top: 3.5rem;
+}
+
+.heading-image >div> input{
+    width: 100%;
+    border: 10px;
+    outline: none;
+    padding-left: 0.5rem;
+}
+
+.icon-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    width: 33rem;
+    height: 2.4rem; 
+    border-radius: 6px;
+    background-color: white;
+}
+
+h3, b, h4{
+    color : white;
+}
+
+@media (max-width : 768px) and (min-width: 450px) {
+    .heading-image > .icon-parent{
+        width: 60%
+    }
+}
+
+@media (max-width: 450px) {
+    .icon-parent{
+        width: 80%;
+    }
+    h4{
+        text-align: center;
+    }
 }
