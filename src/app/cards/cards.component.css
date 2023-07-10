@@ -1,3 +1,99 @@
-.card{
-    box-shadow: 40px;;    
+.card-container{
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    padding: 16px;
+    border-radius: 10px;
+    justify-content:space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-container:hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.01); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.name-and-type{
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px 0px 10px;
+    justify-content: space-between;
+}
+
+.more-info{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.item-image>img{
+    object-fit: cover;
+    width: 100%;
+    height: 208px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.item-star{
+    display: flex;
+    padding: 0px 10px 0px 10px;
+    width:fit-content;
+    border-radius: 20px;
+    background-color: orange;
+    color: white;
+    align-items: center;
+}
+
+
+.quantity{
+    display: flex;
+}
+
+.grid-container-first{
+    margin-left: 5rem !important;
+    margin-right: 5rem !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    margin: auto;
+    gap:3rem
+}
+
+@media (min-width :650px ) and (max-width : 992px) {
+    .grid-container-first{
+        grid-template-columns: 1fr 1fr;
+        /* gap:5rem; */
+        margin-left: 6rem !important;
+        margin-right: 6rem !important;
+    }
+}
+
+@media (max-width : 650px) {
+    .grid-container-first{
+        grid-template-columns: auto;
+    }
+    .card-container{
+        max-width: 370px;
+    }
+}
+
+.item-star > span{
+    background-color: orange;
+    border: 0px; 
+    color: white; 
+    size: 1.6rem;
+}
+
+.quantity > button{
+    background-color : white; 
+    border : 0px;
+    color: rgb(46, 167, 224); 
+    margin-left: 1.3rem; 
+    margin: auto;
+}
+.quantity > b{
+    align-self: center;
 }
