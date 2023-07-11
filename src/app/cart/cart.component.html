@@ -1,8 +1,12 @@
+<div>
+    <br><br>
+    <div class="shopping-head">
+        <b style="font-size :x-large; font-weight: 500;">Shopping Cart</b>
+    </div>
+    <hr>
+</div>
 
-<br><br>
-<b style="margin-left: 10rem; font-size :x-large; font-weight: 500;">Shopping Cart</b>
-<hr>
-<span>
+<!-- <span>
     <table>
         <tr>
             <th>Product Details</th>
@@ -60,10 +64,69 @@
 </span>
 <span *ngIf = "empty == false">
     <button class = "btn btn-warning" style="margin-left: 58rem; color: white;" (click) = "Checkoutfunc()">Checkout</button>
-</span>
+</span> -->
+
+
+
+
+<div *ngIf="empty != true">
+    
+    <div class="outer-container">
+        <div class="product-head">PRODUCT</div>
+        <div class="quantity-head">QUANTITY</div>
+        <div class="price-head">PRICE</div>
+    </div><br><br>
+
+    <div class="item-body" *ngFor="let x of cart">
+        <div class="product">
+            <div>
+                <img src={{x.img}} alt="">
+            </div>
+            <div class="product-name">
+                <b>{{x.name}}</b>
+            </div>
+        </div>
+        <div class="quantity">
+            <button style="background-color : white; border : 0px;color: rgb(46, 167, 224);"
+                (click)="countdecrease(x.id);">
+                <span class="material-symbols-outlined">
+                    remove
+                </span>
+            </button>
+            {{x.quantity}} 
+            <button style="background-color : white; border : 0px; color: rgb(46, 167, 224);"
+                (click)="countincrease(x.id);">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </button> 
+            <button style="background-color : white; border : 0px; color: rgb(46, 167, 224);"
+                (click)="remove(x.id);">
+                <span class="material-symbols-outlined">
+                    delete
+            </span>
+        </button>
+        </div>
+        <div class="price">
+            {{x.price}}
+        </div>
+        <br>    
+    </div>
+    <div class="total-parent">
+        <div class="total-price">
+            <h4>Total Price : </h4>
+            <h4>{{total | currency : 'INR'}}</h4>
+        </div>
+    </div>
+</div>
+
 
 
 <div *ngIf="empty == true">
-    <h3 style="margin-left: 43%; margin-top: 10%;">Cart is empty!!</h3>
+    <br><br><br><br><br><br><br>
+    <div class="empty-cart">
+        <h3>Cart is empty!!</h3>
+    </div>
 </div>
 
+<br><br><br>

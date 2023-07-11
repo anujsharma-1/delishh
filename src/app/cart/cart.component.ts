@@ -42,7 +42,13 @@ export class CartComponent implements OnInit {
         this.service.methodtoservice();
       }
       this.total = this.total + this.cart[i].price*this.cart[i].quantity;
+      if(this.cart[i].quantity <1)
+      {
+        this.remove(data);
+      }
     }
+    if(this.total<=0)
+      this.empty = true;
   }
   countincrease(data : any)
   {
@@ -75,6 +81,8 @@ export class CartComponent implements OnInit {
     {
       this.total = this.total + this.cart[i].price*this.cart[i].quantity;
     }
+    if(this.total<=0)
+      this.empty = true;
   }
   Checkoutfunc()
   {

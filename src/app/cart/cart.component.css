@@ -1,4 +1,4 @@
-.myclass{
+/* .myclass{
     color: white;
     background-color: rgb(48, 129, 215);
     border: 0;
@@ -17,4 +17,74 @@ td{
     border: 0px;
     border-radius: 10px;;
     color : white;
+} */
+
+.outer-container, .item-body{
+    margin : 0rem 5rem 0rem 5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    justify-content: center;
+}
+
+.product > div> img{
+    object-fit: cover;
+    width: 12rem;
+    height: 8rem;
+}
+
+.product{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+}
+
+.quantity-head, .price-head, .quantity, .price, .product-head{
+    margin: auto;
+}
+
+.product-name{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.quantity{
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    width: 10rem;
+}
+
+.quantity > button{
+    padding: 0px;
+}
+
+.shopping-head{
+    display: flex;
+    justify-content: center;
+}
+
+.empty-cart{
+    display: flex;
+    justify-content: center;
+}
+
+.total-price{
+    margin :0rem 10% 0rem 15%;
+    display: flex;
+    padding-right: 1rem;
+    justify-content: space-between;
+    background-color: rgb(206, 203, 203);
+    width: 960px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding-left: 1rem;
+    height: 3rem;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.total-parent{
+    display: flex;
+    justify-content: center;
 }
