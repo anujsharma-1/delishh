@@ -9,31 +9,27 @@ import { ApiService } from '../services/api.service';
 })
 export class DetailsComponent implements OnInit {
 
-  arr2 : any;
-  bl : any;
+  searchedResults : any = [];
+  isItemAvailable : any;
   constructor(private route : ActivatedRoute, private service : ApiService) { }
-  str : any;
+  searchedString : any;
   
   ngOnInit(): void {
     this.route.paramMap.subscribe((par)=>{
-        this.str = par.get('name');
-        console.log(this.str);
+        this.searchedString = par.get('name');
     })
-    this.method();
+    this.searchItem();
   }
-  method()
+  searchItem()
   {
-    this.bl=0;
-    let arr1 = this.service.arr;
-    this.arr2 = arr1.filter(items=>items.name.includes(this.str));
-    if(this.arr2.length > 0)
-    {
-      this.bl=1;
-    }
-    else  
-    {
-      this.bl=0;
-    }
+    // debugger;
+    this.isItemAvailable=0;
+    let localItem = "";
+    this.searchedResults = this.service.arr.filter((items)=>{
+      localItem = items.name.toLowerCase();
+      this.searchedString = this.searchedString.toLowerCase(); 
+      return localItem.includes(this.searchedString)
+    });
+    this.searchedResults.length > 0 ? this.isItemAvailable = 1 : this.isItemAvailable = 0;
   }
-
 }

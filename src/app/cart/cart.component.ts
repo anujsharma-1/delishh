@@ -13,74 +13,40 @@ export class CartComponent implements OnInit {
   cart : any = [];
   total : number = 0;
   bl = false;
+  empty = true;
 
   ngOnInit(): void {
-    this.method();
+    this.initializeCartTab();
   }
-  empty = true;
-  method()
+
+  initializeCartTab()
   {
-    this.cart = this.service.cartarray.filter((item : any)=>item.quantity>0);
-    this.service.cartarray = this.cart;
-    if(this.cart.length==0)
-      this.empty=true;
-    else this.empty = false;
-    for(let i=0;i<this.cart.length;i++)
-    {
-      this.total = this.total + this.cart[i].price*this.cart[i].quantity;
-    }
- //   document.getElementById("id1")?.innerHTML = this.cart.length;
+    this.service.prepareItemInCartArray();
+    this.cart = this.service.cartarray;
+    if(this.cart.length > 0)
+      this.empty = false;
+    this.total = this.service.totalCartPrice;
   }
-  countdecrease(data : any)
+  countdecrease(itemId : any)
   {
-    this.total = 0;
-    for(let i=0;i<this.cart.length;i++)
-    {
-      if(data == this.cart[i].id && this.cart[i].quantity>0)
-      {
-        this.cart[i].quantity--;
-        this.service.methodtoservice();
-      }
-      this.total = this.total + this.cart[i].price*this.cart[i].quantity;
-      if(this.cart[i].quantity <1)
-      {
-        this.remove(data);
-      }
-    }
-    if(this.total<=0)
+    this.service.decreseItemCount(itemId);
+    this.total = this.service.totalCartPrice;
+    this.cart = this.service.cartarray;
+    console.log(this.total);
+    if(this.service.totalCartPrice<=0)
       this.empty = true;
   }
-  countincrease(data : any)
+  countincrease(itemId  : any)
   {
-    this.total = 0;
-    for(let i=0;i<this.cart.length;i++)
-    {
-      if(data == this.cart[i].id && this.cart[i].quantity<=6)
-      {
-        this.cart[i].quantity++;
-        this.service.methodtoservice();
-      }
-      this.total = this.total + this.cart[i].price*this.cart[i].quantity;
-    }
+    this.service.increaseItemCount(itemId);
+    this.total = this.service.totalCartPrice;
   }
-  remove(data : any)
+  remove(itemId : any)
   {
-    this.cart = this.cart.filter((item : any)=>item.id!=data);
-    for(let i=0;i<this.service.arr.length;i++)
-    {
-      if(this.service.arr[i].id == data)
-      {
-        this.service.arr[i].quantity = 0;
-        this.service.methodtoservice();
-      }
-    }
-    this.cart = this.service.cartarray.filter((item : any)=>item.id!=data);
-    this.total = 0;
-
-    for(let i=0;i<this.cart.length;i++)
-    {
-      this.total = this.total + this.cart[i].price*this.cart[i].quantity;
-    }
+    this.service.removeItemFromCart(itemId);
+    this.total = this.service.totalCartPrice;
+    this.cart = this.service.cartarray;
+    debugger;
     if(this.total<=0)
       this.empty = true;
   }

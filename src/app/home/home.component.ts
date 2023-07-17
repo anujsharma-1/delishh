@@ -18,7 +18,6 @@ export class HomeComponent  {
   local = this.service.arr;
   method()
   {  
-    this.service.text = "bunty chela";
     this.array =  this.service.arr;
     if(this.type == "veg")
       this.local = this.array.filter((item : any)=>item.type == 0);
@@ -28,7 +27,6 @@ export class HomeComponent  {
       this.local =  this.array.filter((item : any)=>item.type == 2);
     if(this.type == "all")
       this.local =  this.array;
-    this.service.text = this.text
   }
   func(data : any)
   {

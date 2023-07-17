@@ -1,8 +1,8 @@
 <div>
 
-<h3 style = "margin-left: 6rem; margin-top: 3rem;;">You searched for "{{str}}" : </h3><br><br>
-<div *ngIf = "bl == 0">
+<h3 style = "margin-left: 6rem; margin-top: 3rem;;">You searched for "{{searchedString}}" : </h3><br><br>
+<div *ngIf = "isItemAvailable == 0">
     <h5 style = "margin-left: 37rem; margin-top: 6rem;;">No item found</h5>
 </div>
-<app-cards [localarray] = "arr2"></app-cards>
+<app-cards [localarray] = "searchedResults"></app-cards>
 </div>

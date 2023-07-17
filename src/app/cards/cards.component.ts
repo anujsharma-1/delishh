@@ -16,30 +16,15 @@ export class CardsComponent implements OnInit {
   constructor(private service : ApiService, private route : ActivatedRoute, private router : Router) {
   }
   
-  ngOnInit(): void {
-    
-  }
-  countdecrease(data : any)
+  ngOnInit(): void {}
+  countdecrease(itemId : any)
   {
-    for(let i=0;i<this.localarray.length;i++)
-    {
-      if(data == this.localarray[i].id && this.localarray[i].quantity>0)
-      {
-       this.localarray[i].quantity--;
-        this.service.methodtoservice();
-      }
-    }
+    this.service.decreseItemCount(itemId);
   }
-  countincrease(data : any)
+  
+  countincrease(itemId : any)
   {
-    for(let i=0;i<this.localarray.length;i++)
-    {
-      if(data == this.localarray[i].id && this.localarray[i].quantity<=6)
-      {
-        this.localarray[i].quantity++;
-        this.service.methodtoservice();
-      }
-    }
+    this.service.increaseItemCount(itemId);
   }
   routerfunc(data  : any)
   {

@@ -1,4 +1,6 @@
+import { Element } from '@angular/compiler';
 import { Injectable, OnInit } from '@angular/core';
+import { reduce } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +9,8 @@ export class ApiService {
 
   constructor() {
   }
-  items : any;
-  id  : any;
-  text : string = "string";
-  
+  totalCartItems : number = 0;
+  totalCartPrice : number = 0;
 arr = [
   {name : "Kadai paneer", img : "https://storyofspices.in/wp-content/uploads/2022/04/kadai_paneer_recipe_story_of_spices-01-1-scaled.jpeg", star : 4.2, type : 0, id : Math.random(), price : 280, quantity : 0},
   {name : "Daal makhni", img : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY0bFf_KHfCXNaEJ0F-hezmvAZVagrNjtz1tEA3tAdgvG_ZCoAGt6DwEtTNREJ2UpgztA&usqp=CAU", star : 3.5, type : 0, id : Math.random(), price : 170, quantity : 0},
@@ -27,16 +27,56 @@ arr = [
 ]
   cartarray : any = [];
 
-  methodtoservice()
-  {
-    for(let i=0;i<this.arr.length;i++)
-    {
-      if(this.arr[i].quantity>0)
-      {
-        this.cartarray = this.arr.filter(item=>item.quantity>0);
-        this.items = this.cartarray.length;   
-      }
+  methodtoservice(){}
+  
+  decreseItemCount(itemId : any){
+    let index = this.findIndexFromId(itemId);
+    if(this.arr[index].quantity  > 1){
+      this.arr[index].quantity--;
+      this.prepareItemInCartArray();
+      this.totalCartPrice -= this.arr[index].price;
     }
-    console.log(this.items);
+    else if(this.arr[index].quantity == 1){     
+      this.removeItemFromCart(index);
+    }
+  }
+
+  increaseItemCount(itemId : any){
+    let index = this.findIndexFromId(itemId);
+    if(this.arr[index].quantity < 6){  
+      this.arr[index].quantity++;
+      this.prepareItemInCartArray();
+      this.totalCartPrice += this.arr[index].price;
+    }
+  }
+
+  removeItemFromCart(itemId : any){
+    let index = this.findIndexFromId(itemId);
+    this.arr[index].quantity = 0;
+    this.prepareItemInCartArray();
+    this.calculateTotalItemPrice();
+  }
+
+  prepareItemInCartArray()
+  {
+    this.cartarray = this.arr.filter(item=>item.quantity>0);
+    this.totalCartItems = this.cartarray.length; 
+  }
+
+  calculateTotalItemPrice(){
+    this.totalCartPrice = 0;
+    if(this.cartarray.length > 0){
+      this.cartarray.forEach((element : any) => {
+        this.totalCartPrice += element?.quantity * element?.price;
+      });
+    }
+  }
+
+  findIndexFromId(itemId : any){
+    for (let i=0; i<this.arr.length; i++){
+      if(this.arr[i].id == itemId)
+        return i;
+    }
+    return -1;
   }
 }
