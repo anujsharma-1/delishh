@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { MyitemComponent } from './myitem/myitem.component';
 import { EveryComponent } from './every/every.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([{path : "", component : HomeComponent}, 
     {path : "cart", component : CartComponent},

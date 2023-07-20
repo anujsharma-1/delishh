@@ -8,7 +8,16 @@
     <div class="item">
       <a class="link" routerLink = "cart" (click) = "tabs = 'cart'" (mouseover) = "cart();"><i class="fa-solid fa-cart-shopping"></i>{{cartitem}}<div id = "id1"></div></a>
     </div>
-    
+    <div class="item profile-parent">
+      <span class="material-symbols-outlined profile-icon" id="profile-icon">
+        account_circle
+      </span>  
+      <div class="dropdown-content">
+        <a routerLink = "myprofile" (click) = "tabs = 'myprofile'">My Profile</a>
+        <a href="#">Orders</a>
+        <a href="#">Exploring</a>
+      </div>
+  </div>
 </div>
 </div>
 
