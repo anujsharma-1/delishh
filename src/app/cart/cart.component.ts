@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { CheckoutService } from '../services/checkout.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { ApiService } from '../services/api.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private service : ApiService, private router : Router) { }
+  constructor(private service : ApiService, private router : Router, private checkout_service : CheckoutService) { }
   cart : any = [];
   total : number = 0;
   bl = false;
@@ -43,7 +44,7 @@ export class CartComponent implements OnInit {
   }
   remove(itemId : any)
   {
-    this.service.removeItemFromCart(itemId);
+    this.service.removeItemFromCart(itemId, -1);
     this.total = this.service.totalCartPrice;
     this.cart = this.service.cartarray;
     debugger;

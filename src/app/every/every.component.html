@@ -1,39 +1,39 @@
 <div class="card" style="width: 33rem; height : 32rem; margin-left: 20rem; margin-top: 3rem;;">
-    <img class="card-img-top" [src]="img" alt="Card image cap">
+    <img class="card-img-top" src={{currentItem.img}} alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title"><b style="font-size : 2rem; padding-right: 19px;;">{{name}}</b>
-            <span *ngIf="type == 0">
+        <h5 class="card-title"><b style="font-size : 2rem; padding-right: 19px;;">{{currentItem.name}}</b>
+            <span *ngIf="currentItem.type == 0">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/768px-Indian-vegetarian-mark.svg.png"
                     style="width: 30px;">
             </span>
-            <span *ngIf="type == 2">
+            <span *ngIf="currentItem.type == 2">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/768px-Indian-vegetarian-mark.svg.png"
                     style="width: 30px;">
             </span>
-            <span *ngIf="type == 1">
+            <span *ngIf="currentItem.type == 1">
                 <img src="http://mummyskhana.com/wp-content/uploads/2021/01/non-veg-icon.jpg" style="width : 30px">
             </span>
         </h5>
         <b><br>
             <span
                 style="background-color: orange;border: 0px ; height: 23px; border-radius: 30px; padding-left : 15px;padding-right : 15px;">
-                <b style="font-size: 1rem; font-weight: 400; color: white;font-style:unset;">{{star}}</b>
+                <b style="font-size: 1rem; font-weight: 400; color: white;font-style:unset;">{{currentItem.star}}</b>
                 <span class="material-symbols-outlined fa-sm"
                     style="background-color: orange;border: 0px ; color: white; size: 1.6rem; padding-left: 0.5rem;;">
                     star
                 </span>
             </span>
-            <b style="padding-left: 3.3rem; font-size: 1.3rem;font-weight: 700; padding-right : 2rem;">{{price | currency : 'INR'}}</b>
+            <b style="padding-left: 3.3rem; font-size: 1.3rem;font-weight: 700; padding-right : 2rem;">{{currentItem.price | currency : 'INR'}}</b>
             <button style="background-color : white; border : 0px;color: rgb(46, 167, 224); margin-left: 1.3rem; ;"
-                (click)="countdecrease(id);">
+                (click)="countdecrease(currentItem.id);">
                 <span class="material-symbols-outlined">
                     remove
                 </span>
             </button>
-            {{quantity}}
+            {{currentItem.quantity}}
             <button style="background-color : white; border : 0px; color: rgb(46, 167, 224);"
                 
-                (click)="countincrease(id);">
+                (click)="countincrease(currentItem.id);">
                 <span class="material-symbols-outlined">
                     add
                 </span>

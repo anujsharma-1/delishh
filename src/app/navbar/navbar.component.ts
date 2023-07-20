@@ -8,6 +8,7 @@ import { ApiService } from '../services/api.service';
 })
 export class NavbarComponent implements OnInit {
 
+  profileHover : boolean = false;
   tabs : string = "";
   cartitem : any;
   constructor(private service : ApiService) { 

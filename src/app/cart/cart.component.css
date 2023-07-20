@@ -75,7 +75,7 @@ td{
     padding-right: 1rem;
     justify-content: space-between;
     background-color: rgb(206, 203, 203);
-    width: 960px;
+    width: 880px;
     flex-grow: 0;
     flex-shrink: 1;
     padding-left: 1rem;
@@ -86,5 +86,17 @@ td{
 
 .total-parent{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
+#proceedPayment:active{
+    color: white;
+}
+#proceedPayment{
+    margin :1rem 10% 0rem 15%; 
+    align-self: flex-end;
+    padding: 10px;
+    border: 0px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+

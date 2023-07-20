@@ -28,6 +28,8 @@ export class CardsComponent implements OnInit {
   }
   routerfunc(data  : any)
   {
-    this.router.navigate(['/every/' + data.name, data.img, data.star, data.type, data.price, data.quantity, data.id]);
+    // console.log(JSON.parse(data));
+    // console.log(JSON.stringify(data));
+    this.router.navigate(['/every/' + data.id]);
   }
-} 
+}

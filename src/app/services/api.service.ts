@@ -36,8 +36,8 @@ arr = [
       this.prepareItemInCartArray();
       this.totalCartPrice -= this.arr[index].price;
     }
-    else if(this.arr[index].quantity == 1){     
-      this.removeItemFromCart(index);
+    else if(this.arr[index].quantity == 1){ 
+      this.removeItemFromCart(undefined, index);
     }
   }
 
@@ -50,8 +50,9 @@ arr = [
     }
   }
 
-  removeItemFromCart(itemId : any){
-    let index = this.findIndexFromId(itemId);
+  removeItemFromCart(itemId : any, index : number){
+    if(index == -1)
+      index = this.findIndexFromId(itemId);
     this.arr[index].quantity = 0;
     this.prepareItemInCartArray();
     this.calculateTotalItemPrice();
