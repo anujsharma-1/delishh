@@ -31,8 +31,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([{path : "", component : HomeComponent}, 
-    {path : "cart", component : CartComponent},
+    RouterModule.forRoot([{path : "", pathMatch : 'full' ,redirectTo: '/home',},
+     {path: 'home', component: HomeComponent}, 
+     {path : "cart", component : CartComponent},
      {path : "details/:name", component : DetailsComponent}, 
      {path : "myitem/:ord", component : MyitemComponent}, 
      {path : "every/:itemId", component : EveryComponent}])
