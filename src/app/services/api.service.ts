@@ -11,6 +11,7 @@ export class ApiService {
   }
   totalCartItems : number = 0;
   totalCartPrice : number = 0;
+
 arr = [
   {name : "Kadai paneer", img : "https://storyofspices.in/wp-content/uploads/2022/04/kadai_paneer_recipe_story_of_spices-01-1-scaled.jpeg", star : 4.2, type : 0, id : Math.random(), price : 280, quantity : 0},
   {name : "Daal makhni", img : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY0bFf_KHfCXNaEJ0F-hezmvAZVagrNjtz1tEA3tAdgvG_ZCoAGt6DwEtTNREJ2UpgztA&usqp=CAU", star : 3.5, type : 0, id : Math.random(), price : 170, quantity : 0},
@@ -79,5 +80,14 @@ arr = [
         return i;
     }
     return -1;
+  }
+
+  foodItemArrayRefresh(){
+    this.arr = this.arr.filter((item)=>{
+      if(item.quantity > 0)
+        item.quantity = 0;
+      return item;
+    })
+    this.calculateTotalItemPrice();
   }
 }

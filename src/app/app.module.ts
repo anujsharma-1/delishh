@@ -13,6 +13,7 @@ import { MyitemComponent } from './myitem/myitem.component';
 import { EveryComponent } from './every/every.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     DetailsComponent,
     MyitemComponent,
     EveryComponent,
+    OrdersComponent,
   
   ],
   imports: [
@@ -33,6 +35,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RouterModule.forRoot([{path : "", pathMatch : 'full' ,redirectTo: '/home',},
      {path: 'home', component: HomeComponent}, 
+     {path: 'orders', component: OrdersComponent},
      {path : "cart", component : CartComponent},
      {path : "details/:name", component : DetailsComponent}, 
      {path : "myitem/:ord", component : MyitemComponent}, 

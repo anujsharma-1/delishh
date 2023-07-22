@@ -1,0 +1,31 @@
+<div class="collapseable">
+    <h2>My Orders</h2>
+    <div *ngFor = "let eachOrder of localOrderList; let i = index" #collapse class="" (click) = "orderDisplay(collapse);">
+        <div class="orderHead">
+            <div class="itemHead">
+                <div *ngFor = "let eachItem of eachOrder.orderArray"  class="itemName" (click) = "method(i)">
+                    {{eachItem.name}} * {{eachItem.quantity}} ,
+                </div>
+            </div>
+            <div class="orderID">
+                {{eachOrder.orderId}}
+            </div>
+        </div>
+        <div class = "item_content" *ngIf = "hideRuleContent[i]">
+
+            <div *ngFor = "let eachItem of eachOrder.orderArray"  class="detailItems">
+                <div>
+                    {{eachItem.name}} * {{eachItem.quantity}} 
+                </div>
+                <div>
+                    {{eachItem.price}} per item
+                </div>
+            </div>
+            <hr>
+            <div class="detailItems">
+                <div>Items Total :</div>
+                <div class="totalPrice">{{total | currency:'INR'}}</div>
+            </div>
+        </div>
+    </div>
+</div>
