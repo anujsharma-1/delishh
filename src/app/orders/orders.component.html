@@ -1,6 +1,6 @@
 <div class="collapseable">
     <h2>My Orders</h2>
-    <div *ngFor = "let eachOrder of localOrderList; let i = index" #collapse class="" (click) = "orderDisplay(collapse);">
+    <div *ngFor = "let eachOrder of localOrderList; let i = index" #collapse class="eachOrder" (click) = "orderDisplay(collapse);">
         <div class="orderHead">
             <div class="itemHead">
                 <div *ngFor = "let eachItem of eachOrder.orderArray"  class="itemName" (click) = "method(i)">
